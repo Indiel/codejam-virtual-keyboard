@@ -62,8 +62,7 @@ html, body {
     transition: 0.15s;
 }
 
-.key:hover,
-.key:focus {
+.key:hover {
     outline: none;
     color: rgba(255, 0, 0, 0.9);
     text-shadow: 0px 0px 6px rgba(255, 0, 0, 1);

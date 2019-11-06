@@ -271,9 +271,9 @@ function mouseDown(evt) {
     textarea.focus();
     let key = evt.target.closest('.key');
     textarea.selectionStart = textarea.value.length;
-    if (key) {
-        write(key);
+    write(key);
 
+    if (key && (key.dataset.key !== 'CapsLock' && key.dataset.key !== 'ShiftLeft' && key.dataset.key !== 'ShiftRight')) {
         document.addEventListener('mouseup', function() {
             key.classList.remove('active');
         });
@@ -293,9 +293,11 @@ function keyDown(evt) {
             write(keys[i]);
             textarea.selectionStart = textarea.value.length;
             
-            document.addEventListener('keyup', function() {
-                keys[i].classList.remove('active');
-            });
+            if (keys[i] && (keys[i].dataset.key !== 'CapsLock' && keys[i].dataset.key !== 'ShiftLeft' && keys[i].dataset.key !== 'ShiftRight')) {
+                document.addEventListener('keyup', function() {
+                    keys[i].classList.remove('active');
+                });
+            }
 
             return;
         }
