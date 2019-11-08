@@ -102,12 +102,15 @@ function fillRow(length) {
     const text = document.createElement('span');
     if (key.classList.length < 2) {
       if (lang === 'ru') {
-        current[0] = text.textContent;
+        // eslint-disable-next-line prefer-destructuring
+        text.textContent = current[0];
       } else {
-        current[2] = text.textContent;
+        // eslint-disable-next-line prefer-destructuring
+        text.textContent = current[2];
       }
     } else {
-      current[0] = text.textContent;
+      // eslint-disable-next-line prefer-destructuring
+      text.textContent = current[0];
     }
 
     key.append(text);
